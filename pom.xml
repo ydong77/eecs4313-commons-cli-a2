@@ -44,6 +44,13 @@
     <system>GitHub</system>
     <url>https://github.com/apache/commons-cli/actions</url>
   </ciManagement>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>EvoSuite</id>
+      <name>EvoSuite Repository</name>
+      <url>http://www.evosuite.org/m2</url>
+    </pluginRepository>
+  </pluginRepositories>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -56,6 +63,11 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
@@ -63,6 +75,12 @@
     <dependency>
       <groupId>org.junit-pioneer</groupId>
       <artifactId>junit-pioneer</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -81,6 +99,12 @@
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <version>${commons.mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.evosuite</groupId>
+      <artifactId>evosuite-standalone-runtime</artifactId>
+      <version>${evosuite.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -111,6 +135,7 @@
     <commons.jacoco.branchRatio>0.95</commons.jacoco.branchRatio>
     <commons.jacoco.lineRatio>0.98</commons.jacoco.lineRatio>
     <commons.jacoco.complexityRatio>0.94</commons.jacoco.complexityRatio>
+    <evosuite.version>1.0.6</evosuite.version>
   </properties>
   <build>
     <defaultGoal>clean verify apache-rat:check japicmp:cmp checkstyle:check spotbugs:check pmd:check javadoc:javadoc</defaultGoal>
@@ -189,11 +214,23 @@
         <version>1.14.0</version>
         <configuration>
           <targetClasses>
-            <param>org.apache.commons.cli.*</param>
+            <param>org.apache.commons.cli.Option</param>
+            <param>org.apache.commons.cli.Options</param>
+            <param>org.apache.commons.cli.OptionGroup</param>
+            <param>org.apache.commons.cli.CommandLine</param>
+            <param>org.apache.commons.cli.DefaultParser</param>
+            <param>org.apache.commons.cli.HelpFormatter</param>
+            <param>org.apache.commons.cli.PatternOptionBuilder</param>
+            <param>org.apache.commons.cli.TypeHandler</param>
+            <param>org.apache.commons.cli.OptionValidator</param>
+            <param>org.apache.commons.cli.Parser</param>
           </targetClasses>
           <targetTests>
             <param>org.apache.commons.cli.*</param>
           </targetTests>
+          <jvmArgs>
+            <jvmArg>-Xmx2g</jvmArg>
+          </jvmArgs>
         </configuration>
         <dependencies>
           <dependency>
@@ -202,6 +239,24 @@
             <version>1.2.2</version>
           </dependency>
         </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.evosuite.plugins</groupId>
+        <artifactId>evosuite-maven-plugin</artifactId>
+        <version>${evosuite.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+        <configuration>
+          <properties>
+            <property>
+              <name>listener</name>
+              <value>org.evosuite.runtime.InitializingListener</value>
+            </property>
+          </properties>
+        </configuration>
       </plugin>
     </plugins>
   </build>

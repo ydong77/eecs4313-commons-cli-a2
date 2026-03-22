@@ -1,0 +1,89 @@
+[MASTER] 19:35:13.704 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.cli.help.TableDefinition. Class not found: org.mockito.internal.creation.bytebuddy.MockMethodAdvice$Identifier
+java.lang.NoClassDefFoundError: org/mockito/internal/creation/bytebuddy/MockMethodAdvice
+	at java.lang.Class.getDeclaringClass0(Native Method) ~[na:1.8.0_471]
+	at java.lang.Class.getDeclaringClass(Class.java:1238) ~[na:1.8.0_471]
+	at java.lang.Class.getEnclosingClass(Class.java:1280) ~[na:1.8.0_471]
+	at java.lang.Class.getSimpleBinaryName(Class.java:1446) ~[na:1.8.0_471]
+	at java.lang.Class.getSimpleName(Class.java:1312) ~[na:1.8.0_471]
+	at java.lang.Class.isAnonymousClass(Class.java:1414) ~[na:1.8.0_471]
+	at org.evosuite.setup.TestUsageChecker.canUse(TestUsageChecker.java:155) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.ConcreteClassAnalyzer.getConcreteClassesImpl(ConcreteClassAnalyzer.java:133) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.ConcreteClassAnalyzer.getConcreteClasses(ConcreteClassAnalyzer.java:61) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.TestClusterGenerator.addDependency(TestClusterGenerator.java:878) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.TestClusterGenerator.addDependency(TestClusterGenerator.java:844) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.TestClusterGenerator.addDependencies(TestClusterGenerator.java:789) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.TestClusterGenerator.addDependencyClass(TestClusterGenerator.java:985) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.TestClusterGenerator.resolveDependencies(TestClusterGenerator.java:358) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.TestClusterGenerator.generateCluster(TestClusterGenerator.java:137) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.DependencyAnalysis.analyze(DependencyAnalysis.java:118) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.setup.DependencyAnalysis.analyzeClass(DependencyAnalysis.java:132) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.TestSuiteGenerator.initializeTargetClass(TestSuiteGenerator.java:110) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.TestSuiteGenerator.generateTestSuite(TestSuiteGenerator.java:130) [evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.rmi.service.ClientNodeImpl$1.run(ClientNodeImpl.java:145) [evosuite-master-1.0.6.jar:1.0.6]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_471]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_471]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_471]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_471]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_471]
+Caused by: java.lang.ClassNotFoundException: org/mockito/internal/creation/bytebuddy/inject/MockMethodDispatcher
+	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168) ~[evosuite-master-1.0.6.jar:1.0.6]
+	... 25 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/mockito/internal/creation/bytebuddy/inject/MockMethodDispatcher
+	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_471]
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:756) ~[na:1.8.0_471]
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:635) ~[na:1.8.0_471]
+	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:194) ~[evosuite-master-1.0.6.jar:1.0.6]
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Class 'org/mockito/internal/creation/bytebuddy/inject/MockMethodDispatcher.class' should be in target project, but could not be found!
+	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168) ~[evosuite-master-1.0.6.jar:1.0.6]
+	... 30 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Class 'org/mockito/internal/creation/bytebuddy/inject/MockMethodDispatcher.class' should be in target project, but could not be found!
+	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:188) ~[evosuite-master-1.0.6.jar:1.0.6]
+	... 31 common frames omitted
+[MASTER] 19:35:13.705 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 19:35:14.179 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.LinkedList<E> : Type points to itself
+[MASTER] 19:35:14.179 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.lang.Iterable<T> : Type points to itself
+[MASTER] 19:35:14.180 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.List<E> : Type points to itself
+[MASTER] 19:35:14.933 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+[MASTER] 19:35:15.032 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.function.Function<T, R> : Type points to itself
+[MASTER] 19:35:18.207 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: org.apache.commons.cli.help.TableDefinition with seed 1773790512248. Configuration id : default
+java.lang.reflect.MalformedParametersException: Invalid parameter name ""
+	at java.lang.reflect.Executable.verifyParameters(Executable.java:386) ~[na:1.8.0_471]
+	at java.lang.reflect.Executable.privateGetParameters(Executable.java:416) ~[na:1.8.0_471]
+	at java.lang.reflect.Executable.getParameters(Executable.java:357) ~[na:1.8.0_471]
+	at org.evosuite.testcase.TestFactory.addMethod(TestFactory.java:553) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.attemptObjectGeneration(TestFactory.java:896) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.createOrReuseObjectVariable(TestFactory.java:1587) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.createOrReuseVariable(TestFactory.java:1350) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.satisfyParameters(TestFactory.java:2365) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.addMethod(TestFactory.java:551) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.createObject(TestFactory.java:1306) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.attemptGeneration(TestFactory.java:836) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.createVariable(TestFactory.java:1431) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.createOrReuseVariable(TestFactory.java:1376) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.satisfyParameters(TestFactory.java:2365) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.addMethodFor(TestFactory.java:601) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.addCallFor(TestFactory.java:130) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.insertRandomCallOnObjectAt(TestFactory.java:2296) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.mutation.RandomInsertion.insertStatement(RandomInsertion.java:127) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.TestFactory.insertRandomStatement(TestFactory.java:2308) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.factories.RandomLengthTestFactory.getRandomTestCase(RandomLengthTestFactory.java:69) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.factories.RandomLengthTestFactory.getChromosome(RandomLengthTestFactory.java:89) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testcase.factories.RandomLengthTestFactory.getChromosome(RandomLengthTestFactory.java:40) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.ga.archive.ArchiveTestChromosomeFactory.getChromosome(ArchiveTestChromosomeFactory.java:88) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.ga.archive.ArchiveTestChromosomeFactory.getChromosome(ArchiveTestChromosomeFactory.java:35) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testsuite.AbstractTestSuiteChromosome.mutate(AbstractTestSuiteChromosome.java:248) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.testsuite.TestSuiteChromosome.mutate(TestSuiteChromosome.java:264) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.ga.metaheuristics.MonotonicGA.evolve(MonotonicGA.java:127) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.ga.metaheuristics.MonotonicGA.generateSolution(MonotonicGA.java:245) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.strategy.WholeTestSuiteStrategy.generateTests(WholeTestSuiteStrategy.java:113) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.TestSuiteGenerator.generateTests(TestSuiteGenerator.java:653) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.TestSuiteGenerator.generateTestSuite(TestSuiteGenerator.java:236) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at org.evosuite.rmi.service.ClientNodeImpl$1.run(ClientNodeImpl.java:145) ~[evosuite-master-1.0.6.jar:1.0.6]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_471]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_471]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_471]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_471]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_471]
